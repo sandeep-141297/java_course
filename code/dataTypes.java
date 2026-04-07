@@ -27,5 +27,13 @@ public class dataTypes {
 
         int ab = 100;
         System.out.println(ab);
+
+        // java char datatype work with unicode
+        char ch = 'a';
+        System.out.println(ch); 
+        ch++;
+        System.out.println(ch); 
+        ch--;
+        System.out.println(ch); 
     }
 }

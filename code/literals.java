@@ -25,6 +25,52 @@ public class literals {
         System.out.println(num5);
 
 
+        int num6 = 10_00_00_000; 
+        System.out.println(num6);
+
+        int b = 0b1010_1010;
+        System.out.println(b);
+
+        int c = 0xFF_EC_DE_5E;
+        System.out.println(c);
+
+        double num7 = 56;
+        System.out.println(num7); // integer convert to decimal output 56.0
+
+        // powe no not large with multiply
+        double num10 = 12e2;
+        System.out.println(num10);
+
+        // power no large with multiply and increase power
+        double num8 = 56e7;
+        System.out.println(num8);
+
+        double num9 = 12e10;
+        System.out.println(num9);
+
+        // power no large with multiply and decrease power
+        double num11 = 0.5e12;
+        System.out.println(num11);
+
+        // power no not large with multiply
+        double num12 = 0.5e2;
+        System.out.println(num12);
+
+
+        //boolean num13 = 1; // not work can't convert int to boolean only true false allowed
+        //System.out.println(num13); 
+
+        boolean num13 = true; 
+        System.out.println(num13); 
+
+        // java char datatype work with unicode
+        char ch = 'a';
+        System.out.println(ch); 
+        ch++;
+        System.out.println(ch); 
+        ch--;
+        System.out.println(ch); 
+
     }
     
 }
