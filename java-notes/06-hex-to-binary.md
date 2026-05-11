@@ -212,7 +212,7 @@ We represent numbers using combinations of **8, 4, 2, 1**
 ```text
 1 = 1
 → 0 0 0 1
-      ↑
+        ↑
 ```
 
 ---
@@ -222,7 +222,7 @@ We represent numbers using combinations of **8, 4, 2, 1**
 ```text
 2 = 2
 → 0 0 1 0
-    ↑
+      ↑
 ```
 
 ---
@@ -232,7 +232,7 @@ We represent numbers using combinations of **8, 4, 2, 1**
 ```text
 3 = 2 + 1
 → 0 0 1 1
-    ↑ ↑
+      ↑ ↑
 ```
 
 ---
@@ -242,7 +242,7 @@ We represent numbers using combinations of **8, 4, 2, 1**
 ```text
 4 = 4
 → 0 1 0 0
-  ↑
+    ↑
 ```
 
 ---
@@ -252,7 +252,7 @@ We represent numbers using combinations of **8, 4, 2, 1**
 ```text
 5 = 4 + 1
 → 0 1 0 1
-  ↑     ↑
+    ↑   ↑
 ```
 
 ---
@@ -262,7 +262,7 @@ We represent numbers using combinations of **8, 4, 2, 1**
 ```text
 6 = 4 + 2
 → 0 1 1 0
-  ↑ ↑
+    ↑ ↑
 ```
 
 ---
@@ -272,7 +272,7 @@ We represent numbers using combinations of **8, 4, 2, 1**
 ```text
 7 = 4 + 2 + 1
 → 0 1 1 1
-  ↑ ↑ ↑
+    ↑ ↑ ↑
 ```
 
 ---
@@ -282,7 +282,7 @@ We represent numbers using combinations of **8, 4, 2, 1**
 ```text
 8 = 8
 → 1 0 0 0
-↑
+  ↑
 ```
 
 ---
@@ -292,7 +292,7 @@ We represent numbers using combinations of **8, 4, 2, 1**
 ```text
 9 = 8 + 1
 → 1 0 0 1
-↑       ↑
+  ↑     ↑
 ```
 
 ---
@@ -302,7 +302,7 @@ We represent numbers using combinations of **8, 4, 2, 1**
 ```text
 10 = 8 + 2
 → 1 0 1 0
-↑   ↑
+  ↑   ↑
 ```
 
 ---
@@ -312,7 +312,7 @@ We represent numbers using combinations of **8, 4, 2, 1**
 ```text
 11 = 8 + 2 + 1
 → 1 0 1 1
-↑   ↑ ↑
+  ↑   ↑ ↑
 ```
 
 ---
@@ -322,7 +322,7 @@ We represent numbers using combinations of **8, 4, 2, 1**
 ```text
 12 = 8 + 4
 → 1 1 0 0
-↑ ↑
+  ↑ ↑
 ```
 
 ---
@@ -332,7 +332,7 @@ We represent numbers using combinations of **8, 4, 2, 1**
 ```text
 13 = 8 + 4 + 1
 → 1 1 0 1
-↑ ↑     ↑
+  ↑ ↑   ↑
 ```
 
 ---
@@ -342,7 +342,7 @@ We represent numbers using combinations of **8, 4, 2, 1**
 ```text
 14 = 8 + 4 + 2
 → 1 1 1 0
-↑ ↑ ↑
+  ↑ ↑ ↑
 ```
 
 ---
@@ -352,7 +352,7 @@ We represent numbers using combinations of **8, 4, 2, 1**
 ```text
 15 = 8 + 4 + 2 + 1
 → 1 1 1 1
-↑ ↑ ↑ ↑
+  ↑ ↑ ↑ ↑
 ```
 
 ---

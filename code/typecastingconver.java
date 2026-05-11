@@ -46,7 +46,7 @@ public class typecastingconver {
         byte av = 10;
         byte bv = 20;
 
-        int result = av + bv;  // NOT byte
+        int result = av * bv;  // NOT byte
         System.out.println(result);
     }
 }
