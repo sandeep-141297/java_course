@@ -296,6 +296,4 @@ int result = a + b; // result is int
 
 ---
 
-If you want next 🔥:
-
-👉 I can give **operator precedence + tricky interview questions (like ++a + a++)** which confuse many developers.
+👉 **operator precedence + tricky interview questions (like ++a + a++)** which confuse many developers.
