@@ -604,7 +604,7 @@ Unary operators have **high priority**.
 | Lower    | `< > <= >=`     |
 | Lower    | `== !=`         |
 | Lower    | `&&`            |
-| Lower    | `||`            |
+| Lower    | `\|\|`          |
 | Lowest   | `=`             |
 
 ---

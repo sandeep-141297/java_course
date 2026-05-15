@@ -31,7 +31,7 @@ false
 | Operator | Name        |
 | -------- | ----------- |
 | `&&`     | Logical AND |
-| `||`     | Logical OR  |
+| `\|\|`   | Logical OR  |
 | `!`      | Logical NOT |
 
 ---
@@ -533,10 +533,10 @@ executed.
 
 # Difference Between `||` and `|`
 
-| `||` | `|` |
-|---|---|
-| Short circuit | No short circuit |
-| Logical OR | Bitwise OR + logical |
+| `\|\|`        | `\|`                 |
+|---------------|----------------------|
+| Short circuit | No short circuit     |
+| Logical OR    | Bitwise OR + logical |
 
 ---
 
@@ -546,7 +546,7 @@ executed.
 | -------- | --------- |
 | Highest  | `!`       |
 | Lower    | `&&`      |
-| Lower    | `||`      |
+| Lower    | `\|\|`    |
 
 ---
 
@@ -677,7 +677,7 @@ true
 | Operator | Meaning | Example         | Result  |
 | -------- | ------- | --------------- | ------- |
 | `&&`     | AND     | `true && false` | `false` |
-| `||`     | OR      | `true || false` | `true`  |
+| `\|\|`   | OR      | `true || false` | `true`  |
 | `!`      | NOT     | `!true`         | `false` |
 
 ---
@@ -687,5 +687,5 @@ true
 | Operator | Trick             | 
 | -------- | ----------------- |
 | `&&`     | BOTH must be true | 
-| `||`     | ANY one true      |
+| `\|\|`   | ANY one true      |
 | `!`      | Opposite/reverse  | 

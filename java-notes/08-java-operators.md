@@ -148,7 +148,7 @@ Used with boolean values
 | Operator | Meaning |
 | -------- | ------- |
 | `&&`     | AND     |
-| `||`     | OR      |
+| `\|\|`   | OR      |
 | `!`      | NOT     |
 
 ---
@@ -170,7 +170,7 @@ Work on binary (bits)
 | Operator | Meaning |
 | -------- | ------- |
 | `&`      | AND     |
-| `|`      | OR      |
+| `\|`     | OR      |
 | `^`      | XOR     |
 | `~`      | NOT     |
 
