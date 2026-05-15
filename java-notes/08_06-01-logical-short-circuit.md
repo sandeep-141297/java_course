@@ -84,7 +84,7 @@ if (a > 0 | (10 / b) > 1) {    // a > 0 is TRUE → but still checks next → CR
 ### Full Comparison Table
 
 | | `&&`                | `&`               | `\|\|`      | `\|`             |            |
-|---                    |---                |---          |---               |---         |
+|-----------------------|-------------------|-------------|------------------|------------|
 | Full name             | Short Circuit AND | Bitwise AND | Short Circuit OR | Bitwise OR |
 | Stops early?          | ✅ Yes (on FALSE) | ❌ No      | ✅ Yes (on TRUE) | ❌ No     |
 | Safe with risky code? | ✅ Yes            | ❌ No      | ✅ Yes           | ❌ No     |
