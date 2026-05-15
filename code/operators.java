@@ -1,6 +1,7 @@
 public class operators {
    public static void main(String a[])
     {
+        // Operators in Java: Describe the details of operators in Java with examples in 08-java-operators.md, and check all files starting with 08_* for a better understanding of operators in Java.
         
         // Arithmetic Operators // +, -, *, /, %
         System.out.println("Arithmetic Operators:"); 
@@ -101,13 +102,19 @@ public class operators {
         System.out.println(a1 < a2); // true; because 10 is less than 20
         System.out.println(a1 >= a2); // false; because 10 is not greater than or equal to 20
         System.out.println(a1 <= a2); // true; because 10 is less than or equal to 20
+
+
+        // Logical Operators // && - AND, || - OR, ! - NOT
+        System.out.println("Logical Operators:");
+        boolean b1 = true;
+        boolean b2 = false; 
+        System.out.println(b1 && b2); // false; because true && false is false
+        System.out.println(b1 || b2); // true; because true || false is true
+        System.out.println(!b1); // false; because !true is false
+
+        // Combining relational operators with logical operators
         boolean result14 = (a1 == a2) && (a1 < a2); // false && true = false
         System.out.println(result14);
-        
-
-        // Logical Operators // &&, ||, !
-        System.out.println("Logical Operators:");
-        
 
         
 
