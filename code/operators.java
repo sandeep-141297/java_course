@@ -2,7 +2,7 @@ public class operators {
    public static void main(String a[])
     {
         // Operators in Java: Describe the details of operators in Java with examples in 08-java-operators.md, and check all files starting with 08_* for a better understanding of operators in Java.
-        
+
         // Arithmetic Operators // +, -, *, /, %
         System.out.println("Arithmetic Operators:"); 
         int num1 = 3;
@@ -111,6 +111,26 @@ public class operators {
         System.out.println(b1 && b2); // false; because true && false is false
         System.out.println(b1 || b2); // true; because true || false is true
         System.out.println(!b1); // false; because !true is false
+
+        // short-circuit evaluation with logical operators
+        int x1 = 5;
+        int x2 = 10;
+        boolean result15 = (x1 > x2) && (x1 / 0 > 1); // short-circuit evaluation prevents division by zero, so the second part is not evaluated and result15 is false
+        System.out.println(result15);
+        boolean result16 = (x1 < x2) || (x1 / 0 > 1); // short-circuit evaluation prevents division by zero, so the second part is not evaluated and result16 is true
+        System.out.println(result16);
+        // without short-circuit evaluation, the second part would be evaluated and cause an exception, but with short-circuit evaluation, it is not evaluated because the first part already determines the result.
+        // boolean result17 = (x1 > x2) & (x1 / 0 > 1); // without short-circuit evaluation, both parts are evaluated, so this will throw an exception due to division by zero
+        // System.out.println(result17);
+        // boolean result18 = (x1 < x2) | (x1 / 0 > 1); // without short-circuit evaluation, both parts are evaluated, so this will throw an exception due to division by zero
+        // System.out.println(result18);
+        boolean result19 = (x1 > x2) & (x1 < x2); // without short-circuit evaluation, both parts are evaluated, so this will not throw an exception and result19 will be false because 5 is not greater than 10 and 5 is less than 10
+        System.out.println(result19);
+        boolean result20 = (x1 < x2) | (x1 > x2); // without short-circuit evaluation, both parts are evaluated, so this will not throw an exception and result20 will be true because 5 is less than 10 and 5 is not greater than 10
+        System.out.println(result20);
+        
+        System.out.println("! because true is false: " + result20); // false; because !true is false
+        System.out.println("! because false is true: " + result19); // true; because !false is true
 
         // Combining relational operators with logical operators
         boolean result14 = (a1 == a2) && (a1 < a2); // false && true = false
