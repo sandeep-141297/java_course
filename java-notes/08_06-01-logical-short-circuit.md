@@ -1,3 +1,9 @@
+# What is Short Circuit in Java?
+
+Short circuit means:
+
+## Java stops checking remaining conditions when the final answer is already known.
+
 ## Short Circuit: `&&` vs `&` and `||` vs `|`
 
 ---
@@ -126,6 +132,66 @@ if ((x++ > 5) && (y++ > 5)) {
 System.out.println(x + " " + y); // 2 1 → y++ skipped!
 ```
 
+---
+
+# Example Without Short Circuit Problem
+
+```java id="v3qt7m"
+String name = null;
+
+if(name != null && name.length() > 3) {
+    System.out.println("Valid");
+}
+```
+
+---
+
+# How it Works
+
+First condition:
+
+```java id="w8mx2u"
+name != null
+```
+
+Result:
+
+```java id="n5tp9q"
+false
+```
+
+Now Java stops immediately.
+
+So this never runs:
+
+```java id="z4wr7m"
+name.length()
+```
+
+---
+
+# Output
+
+No error.
+
+---
+
+# If Short Circuit Did Not Exist
+
+Then Java would run:
+
+```java id="r7vq3n"
+name.length()
+```
+
+and program would crash with:
+
+```java id="k2tx8u"
+NullPointerException
+```
+
+---
+
 **In 99% of Java code → always use `&&` and `||`** ✅
 
 ---
@@ -193,3 +259,39 @@ TRUE  || FALSE || TRUE  → stops at 1st  → true  ✅ (2nd, 3rd never checked)
 ```
 
 > `||` → **Stops at first TRUE** → doesn't matter what comes after
+
+
+---
+
+# Real-Life Example
+
+## AND (`&&`)
+
+To enter exam hall:
+
+* Must have ID
+* Must have Admit Card
+
+If ID missing:
+
+No need to check admit card.
+
+This is short circuit.
+
+---
+
+## OR (`||`)
+
+Login allowed with:
+
+* Email
+  OR
+* Mobile Number
+
+If email login succeeds:
+
+No need to check mobile login.
+
+This is short circuit.
+
+
