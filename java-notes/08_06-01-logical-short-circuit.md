@@ -197,9 +197,8 @@ NullPointerException
 ---
 
 # 🚀 Interview
-### Important Understanding
 
-Great question! Let me clear this up.
+### Important Understanding
 
 ---
 
