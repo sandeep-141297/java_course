@@ -1,17 +1,35 @@
-## Short Circuit Evaluation in Java
-
-### What does "Short Circuit" mean?
-
-In `||` — Java **stops checking** the rest of the condition **as soon as it finds one `true`**.
-
-Think of it like this:
-
-> "If ANY one condition is true → result is true"
-> So why bother checking the rest? ✅ **Stop early = Short Circuit**
+## Short Circuit: `&&` vs `&` and `||` vs `|`
 
 ---
 
-### Example
+### `&&` (Short Circuit AND)
+
+Java **stops checking** as soon as it finds one `false`.
+
+> "BOTH must be true → if first is FALSE, why check second? Result is already false!"
+
+```java
+int a = -5;
+int b = 0;
+
+// Using && (Short Circuit)
+if (a > 0 && (10 / b) > 1) {   // a > 0 is FALSE → stops here, never divides by zero!
+    System.out.println("Safe!");
+}
+
+// Using & (No Short Circuit)
+if (a > 0 & (10 / b) > 1) {    // a > 0 is FALSE → but still checks next → CRASH!
+    System.out.println("This crashes!");
+}
+```
+
+---
+
+### `||` (Short Circuit OR)
+
+Java **stops checking** as soon as it finds one `true`.
+
+> "ANY one must be true → if first is TRUE, why check second? Result is already true!"
 
 ```java
 int a = 5;
@@ -23,7 +41,7 @@ if (a > 0 || (10 / b) > 1) {   // a > 0 is TRUE → stops here, never divides by
 }
 
 // Using | (No Short Circuit)
-if (a > 0 | (10 / b) > 1) {    // a > 0 is TRUE → but still checks next → CRASH! ArithmeticException
+if (a > 0 | (10 / b) > 1) {    // a > 0 is TRUE → but still checks next → CRASH!
     System.out.println("This crashes!");
 }
 ```
@@ -33,15 +51,29 @@ if (a > 0 | (10 / b) > 1) {    // a > 0 is TRUE → but still checks next → CR
 ### Visual Flow
 
 ```
-|| (Short Circuit)
-┌─────────────┐     ✅ TRUE
+&& (Short Circuit AND)
+┌─────────────┐    ❌ FALSE
+│ Condition 1 │ ──────────────→ STOP. Result = false. Skip Condition 2.
+└─────────────┘
+                    ✅ TRUE
+               ──────────────→ Check Condition 2 → decide result
+
+
+& (No Short Circuit AND)
+┌─────────────┐
+│ Condition 1 │ ──→ ALWAYS checks Condition 2 regardless
+└─────────────┘
+
+
+|| (Short Circuit OR)
+┌─────────────┐    ✅ TRUE
 │ Condition 1 │ ──────────────→ STOP. Result = true. Skip Condition 2.
 └─────────────┘
-                     ❌ FALSE
-                ──────────────→ Check Condition 2 → decide result
+                    ❌ FALSE
+               ──────────────→ Check Condition 2 → decide result
 
 
-| (No Short Circuit)
+| (No Short Circuit OR)
 ┌─────────────┐
 │ Condition 1 │ ──→ ALWAYS checks Condition 2 regardless
 └─────────────┘
@@ -49,26 +81,49 @@ if (a > 0 | (10 / b) > 1) {    // a > 0 is TRUE → but still checks next → CR
 
 ---
 
-### Simple Rule to Remember
+### Full Comparison Table
 
-|                                  | `\|\|`               | `\|`             |
-| -------------------------------- | ---------------------|------------------|
-| Checks both sides always?        | ❌ No (stops early)  | ✅ Yes (always) |
-| Safe with risky code (null, /0)? | ✅ Yes               | ❌ No           |
-| Speed                            | ✅ Faster            | 🐢 Slower       |
-| Use in real code?                | ✅ Almost always     | ⚠️ Rarely       |
+| | `&&`                | `&`               | `\|\|`      | `\|`             |            |
+|---                    |---                |---          |---               |---         |
+| Full name             | Short Circuit AND | Bitwise AND | Short Circuit OR | Bitwise OR |
+| Stops early?          | ✅ Yes (on FALSE) | ❌ No      | ✅ Yes (on TRUE) | ❌ No     |
+| Safe with risky code? | ✅ Yes            | ❌ No      | ✅ Yes           | ❌ No     |
+| Speed                 | ✅ Faster         | 🐢 Slower  | ✅ Faster        | 🐢 Slower |
+| Use in real code?     | ✅ Always         | ⚠️ Rarely  | ✅ Always        | ⚠️ Rarely |
 
 ---
 
-### Real Life Analogy 🎯
+### Memory Trick 🧠
 
 ```
-|| → Lazy friend:
-"Is it raining OR is it Sunday?"
-Checks rain → YES → "I'm staying home" → doesn't even check what day it is 😄
+&&  → Lazy AND → "First is false? I'm done. Not checking anything else."
+&   → Workaholic AND → "I check EVERYTHING no matter what."
 
-| → Overcautious friend:
-Checks rain → YES → still checks what day it is anyway 🙄
+||  → Lazy OR  → "First is true? I'm done. Not checking anything else."
+|   → Workaholic OR  → "I check EVERYTHING no matter what."
 ```
 
-**In 99% of Java code, always use `||` and `&&`** — they are safer and faster.
+---
+
+### When to use `&` and `|`? ⚠️
+
+Only when you **need both sides to always execute** (very rare):
+
+```java
+int x = 0;
+int y = 0;
+
+// Both x++ and y++ will always run with & and |
+if ((x++ > 5) & (y++ > 5)) {
+    System.out.println("Both incremented!");
+}
+System.out.println(x + " " + y); // 1 1 → both ran
+
+// With &&, y++ may NOT run
+if ((x++ > 5) && (y++ > 5)) {
+    System.out.println("Both incremented?");
+}
+System.out.println(x + " " + y); // 2 1 → y++ skipped!
+```
+
+**In 99% of Java code → always use `&&` and `||`** ✅
