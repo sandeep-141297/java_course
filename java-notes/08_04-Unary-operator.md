@@ -595,17 +595,17 @@ Unary operators have **high priority**.
 
 # Unary Operator Precedence Table
 
-| Priority | Operators       |   |   |
-| -------- | --------------- | - | - |
-| Highest  | `++ -- + - ! ~` |   |   |
-| Lower    | `* / %`         |   |   |
-| Lower    | `+ -`           |   |   |
-| Lower    | `<< >> >>>`     |   |   |
-| Lower    | `< > <= >=`     |   |   |
-| Lower    | `== !=`         |   |   |
-| Lower    | `&&`            |   |   |
-| Lower    | `               |   | ` |
-| Lowest   | `=`             |   |   |
+| Priority | Operators       |
+| -------- | --------------- |
+| Highest  | `++ -- + - ! ~` |
+| Lower    | `* / %`         |
+| Lower    | `+ -`           |
+| Lower    | `<< >> >>>`     |
+| Lower    | `< > <= >=`     |
+| Lower    | `== !=`         |
+| Lower    | `&&`            |
+| Lower    | `||`            |
+| Lowest   | `=`             |
 
 ---
 
@@ -782,6 +782,81 @@ Because constant cannot change.
 
 ---
 
+# Q5. `~` (bitwise NOT) operator works only with integer types (`byte`, `short`, `int`, `long`, `char`) — not with `boolean`.
+
+So this line:
+
+```java
+int result12 = ~false;
+```
+
+will give a compilation error.
+
+## Correct Explanation
+
+`~` flips all bits:
+
+* `0` becomes `1`
+* `1` becomes `0`
+
+Example:
+
+```java
+int num = 5;
+int result = ~num;
+
+System.out.println(result);
+```
+
+### Binary Calculation
+
+```text
+5  = 00000000 00000000 00000000 00000101
+~5 = 11111111 11111111 11111111 11111010
+```
+
+* Shortcut Formula 
+```text
+~n = -(n + 1)
+~5
+= -(5 + 1)
+= -6
+
+This result equals `-6`.
+
+### Output
+
+```text
+-6
+```
+
+## Boolean NOT Operator
+
+For boolean values, Java uses `!` instead of `~`.
+
+Example:
+
+```java
+boolean result = !false;
+
+System.out.println(result);
+```
+
+### Output
+
+```text
+true
+```
+
+## Correct Comment
+
+```java
+boolean result = !false; // logical NOT operator, !false becomes true
+System.out.println(result);
+```
+
+---
+
 # Final Quick Revision
 
 | Operator | Meaning           |
@@ -794,3 +869,154 @@ Because constant cannot change.
 | `--a`    | Decrease then use |
 | `!a`     | Reverse boolean   |
 | `~a`     | Reverse bits      |
+
+
+---
+
+# doubt - Binary Calculation How ?
+
+```text
+5  = 00000000 00000000 00000000 00000101
+~5 = 11111111 11111111 11111111 11111010
+```
+
+```java
+int num = 5;
+int result = ~num;
+
+System.out.println(result); // -6 ?
+```
+
+In Java, `int` uses **32 bits** (4 bytes).
+
+So number `5` is stored in binary using 32 bits.
+
+## Step 1: Convert 5 to Binary
+
+Decimal `5` = binary `101`
+
+But Java stores `int` in 32 bits, so leading zeros are added:
+
+```text
+5 = 00000000 00000000 00000000 00000101
+```
+
+Last 8 bits:
+
+```text
+00000101
+```
+
+Because:
+
+| Position | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 |
+| -------- | --- | -- | -- | -- | - | - | - | - |
+| Bit      | 0   | 0  | 0  | 0  | 0 | 1 | 0 | 1 |
+
+`4 + 1 = 5`
+
+---
+
+# Step 2: Apply `~` Operator
+
+`~` means:
+
+```text
+0 → 1
+1 → 0
+```
+
+So flip every bit:
+
+```text
+00000000 00000000 00000000 00000101
+11111111 11111111 11111111 11111010
+```
+
+---
+
+# Step 3: Why Result is Negative
+
+In Java, negative numbers use **2's complement**.
+
+If first bit is `1`, number is negative.
+
+```text
+11111111 11111111 11111111 11111010
+^
+first bit = 1 → negative
+```
+
+---
+
+# Step 4: Find Actual Value
+
+To get decimal value of negative binary:
+
+## A. Take 2's complement again
+
+Binary:
+
+```text
+11111111 11111111 11111111 11111010
+```
+
+### Flip bits
+
+```text
+00000000 00000000 00000000 00000101
+```
+
+### Add 1
+
+```text
+00000000 00000000 00000000 00000110
+```
+
+This is `6`.
+
+So final value:
+
+```text
+-6
+```
+
+---
+
+# Shortcut Formula
+
+For any number:
+
+```java
+~n = -(n + 1)
+```
+
+Example:
+
+```java
+~5
+= -(5 + 1)
+= -6
+```
+
+---
+
+# Java Example
+
+```java
+public class Main {
+    public static void main(String[] args) {
+
+        int num = 5;
+        int result = ~num;
+
+        System.out.println(result);
+    }
+}
+```
+
+## Output
+
+```text
+-6
+```

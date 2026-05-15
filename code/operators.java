@@ -77,6 +77,39 @@ public class operators {
         System.out.println(result9);
         int result10 = --num1; // Prefix decrement: first decrement num1, then assign updated value to result10.
         System.out.println(result10);
+        int result11 = num1++ + ++num1; // 18 + 20 = 38; first num1++ will assign 18 to result11 and then num1 will become 19, then ++num1 will make num1 20 and add it to result11 which is 18, so final result will be 38
+        System.out.println(result11);
+        int num = 5;
+        int result12 = ~num;
+        System.out.println(result12); // -6; ~5 = -(5+1) = -6
+        int num3 = 4;
+        int result12_1 = ~num3;
+        System.out.println(result12_1); // -5; ~4 = -(4+1) = -5
+        boolean result13 = !false; // logical NOT operator, !false becomes true
+        System.out.println(result13);
+        
+
+        // Relational Operators // ==, !=, >, <, >=, <=
+        System.out.println("Relational Operators:");
+        int a1 = 10;
+        int a2 = 20;
+        boolean isEqual = (a1 == a2); // false; because 10 is not equal to 20
+        System.out.println(isEqual);
+        System.out.println(a1 == a2); // false; because 10 is not equal to 20
+        System.out.println(a1 != a2); // true; because 10 is not equal to 20
+        System.out.println(a1 > a2); // false; because 10 is not greater than 20
+        System.out.println(a1 < a2); // true; because 10 is less than 20
+        System.out.println(a1 >= a2); // false; because 10 is not greater than or equal to 20
+        System.out.println(a1 <= a2); // true; because 10 is less than or equal to 20
+        boolean result14 = (a1 == a2) && (a1 < a2); // false && true = false
+        System.out.println(result14);
+        
+
+        // Logical Operators // &&, ||, !
+        System.out.println("Logical Operators:");
+        
+
+        
 
     }
 }

@@ -145,11 +145,11 @@ System.out.println(a < b);  // true
 
 Used with boolean values
 
-| Operator | Meaning |   |    |
-| -------- | ------- | - | -- |
-| `&&`     | AND     |   |    |
-| `        |         | ` | OR |
-| `!`      | NOT     |   |    |
+| Operator | Meaning |
+| -------- | ------- |
+| `&&`     | AND     |
+| `||`     | OR      |
+| `!`      | NOT     |
 
 ---
 
@@ -167,12 +167,12 @@ System.out.println(age > 18 && age < 30); // true
 
 Work on binary (bits)
 
-| Operator | Meaning |    |
-| -------- | ------- | -- |
-| `&`      | AND     |    |
-| `        | `       | OR |
-| `^`      | XOR     |    |
-| `~`      | NOT     |    |
+| Operator | Meaning |
+| -------- | ------- |
+| `&`      | AND     |
+| `|`      | OR      |
+| `^`      | XOR     |
+| `~`      | NOT     |
 
 ---
 

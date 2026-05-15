@@ -34,20 +34,20 @@ int a = 10;
 
 Java provides:
 
-| Operator | Meaning                         |                       |
-| -------- | ------------------------------- | --------------------- |
-| `=`      | Simple assignment               |                       |
-| `+=`     | Add and assign                  |                       |
-| `-=`     | Subtract and assign             |                       |
-| `*=`     | Multiply and assign             |                       |
-| `/=`     | Divide and assign               |                       |
-| `%=`     | Modulus and assign              |                       |
-| `&=`     | Bitwise AND and assign          |                       |
-| `        | =`                              | Bitwise OR and assign |
-| `^=`     | Bitwise XOR and assign          |                       |
-| `<<=`    | Left shift and assign           |                       |
-| `>>=`    | Right shift and assign          |                       |
-| `>>>=`   | Unsigned right shift and assign |                       |
+| Operator | Meaning                         |
+| -------- | ------------------------------- | 
+| `=`      | Simple assignment               |
+| `+=`     | Add and assign                  |
+| `-=`     | Subtract and assign             |
+| `*=`     | Multiply and assign             |
+| `/=`     | Divide and assign               |
+| `%=`     | Modulus and assign              |
+| `&=`     | Bitwise AND and assign          |
+| `|=`     | Bitwise OR and assign           |
+| `^=`     | Bitwise XOR and assign          |
+| `<<=`    | Left shift and assign           |
+| `>>=`    | Right shift and assign          |
+| `>>>=`   | Unsigned right shift and assign |
 
 ---
 
@@ -468,20 +468,20 @@ But `+=` automatically converts back to byte.
 
 # 💥 16. Quick Summary Table
 
-| Operator | Example    | Meaning              |      |            |
-| -------- | ---------- | -------------------- | ---- | ---------- |
-| `=`      | `a = 5`    | Assign               |      |            |
-| `+=`     | `a += 2`   | Add & assign         |      |            |
-| `-=`     | `a -= 2`   | Subtract & assign    |      |            |
-| `*=`     | `a *= 2`   | Multiply & assign    |      |            |
-| `/=`     | `a /= 2`   | Divide & assign      |      |            |
-| `%=`     | `a %= 2`   | Modulus & assign     |      |            |
-| `&=`     | `a &= 2`   | Bitwise AND          |      |            |
-| `        | =`         | `a                   | = 2` | Bitwise OR |
-| `^=`     | `a ^= 2`   | Bitwise XOR          |      |            |
-| `<<=`    | `a <<= 1`  | Left shift           |      |            |
-| `>>=`    | `a >>= 1`  | Right shift          |      |            |
-| `>>>=`   | `a >>>= 1` | Unsigned right shift |      |            |
+| Operator | Example    | Meaning              |
+| -------- | ---------- | -------------------- |
+| `=`      | `a = 5`    | Assign               |
+| `+=`     | `a += 2`   | Add & assign         |
+| `-=`     | `a -= 2`   | Subtract & assign    |
+| `*=`     | `a *= 2`   | Multiply & assign    |
+| `/=`     | `a /= 2`   | Divide & assign      |
+| `%=`     | `a %= 2`   | Modulus & assign     |
+| `&=`     | `a &= 2`   | Bitwise AND          |
+| `|=`     | `a |= 2`   | Bitwise OR           |
+| `^=`     | `a ^= 2`   | Bitwise XOR          |
+| `<<=`    | `a <<= 1`  | Left shift           |
+| `>>=`    | `a >>= 1`  | Right shift          |
+| `>>>=`   | `a >>>= 1` | Unsigned right shift |
 
 ---
 
