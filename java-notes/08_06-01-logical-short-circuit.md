@@ -127,3 +127,69 @@ System.out.println(x + " " + y); // 2 1 → y++ skipped!
 ```
 
 **In 99% of Java code → always use `&&` and `||`** ✅
+
+---
+
+# 🚀 Interview
+### Important Understanding
+
+Great question! Let me clear this up.
+
+---
+
+### `&&` stops at the **FIRST FALSE** it finds
+
+```java
+if (cond1 && cond2 && cond3)
+```
+
+```
+cond1 → TRUE  → keep checking...
+cond2 → FALSE → STOP! ❌ Never checks cond3
+cond3 → never reached
+```
+
+---
+
+### Real Example
+
+```java
+int a = 5;   // a > 0   → TRUE
+int b = 0;   // 10/b    → would CRASH (divide by zero)
+int c = 10;  // c > 5   → TRUE
+
+if (a > 0 && (10 / b) > 1 && c > 5) {
+//  TRUE  &&   CRASH❌  &&  never checked
+//           STOPS HERE
+}
+```
+
+---
+
+### All Cases with 3 Conditions (`&&`)
+
+```
+TRUE  && TRUE  && TRUE   → checks all 3  → true  ✅
+TRUE  && TRUE  && FALSE  → checks all 3  → false ✅
+TRUE  && FALSE && TRUE   → stops at 2nd  → false ✅ (3rd never checked)
+TRUE  && FALSE && FALSE  → stops at 2nd  → false ✅ (3rd never checked)
+FALSE && TRUE  && TRUE   → stops at 1st  → false ✅ (2nd, 3rd never checked)
+FALSE && FALSE && TRUE   → stops at 1st  → false ✅ (2nd, 3rd never checked)
+FALSE && TRUE  && FALSE  → stops at 1st  → false ✅ (2nd, 3rd never checked)
+FALSE && FALSE && FALSE  → stops at 1st  → false ✅ (2nd, 3rd never checked)
+```
+
+### Simple Rule 🧠
+> `&&` → **Stops at first FALSE** → doesn't matter what comes after
+
+---
+
+### Same for `||` → Stops at first TRUE
+
+```
+FALSE || FALSE || TRUE  → checks all 3  → true  ✅
+FALSE || TRUE  || FALSE → stops at 2nd  → true  ✅ (3rd never checked)
+TRUE  || FALSE || TRUE  → stops at 1st  → true  ✅ (2nd, 3rd never checked)
+```
+
+> `||` → **Stops at first TRUE** → doesn't matter what comes after
