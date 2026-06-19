@@ -82,7 +82,7 @@ public class operators {
         System.out.println(result11);
         int num = 5;
         int result12 = ~num;
-        System.out.println(result12); // -6; ~5 = -(5+1) = -6
+        System.out.println(result12); // -6; ~5 = -(5+1) = -6  // check 08_04-Unary-operator.md line no from 876
         int num3 = 4;
         int result12_1 = ~num3;
         System.out.println(result12_1); // -5; ~4 = -(4+1) = -5
@@ -137,6 +137,68 @@ public class operators {
         System.out.println(result14);
 
         
+        // Bitwise Operators // &, |, ^, ~, <<, >>, >>>
+        System.out.println("Bitwise Operators:");
+        int numA = 5; // in binary: 0101
+        int numB = 3; // in binary: 0011
+        int result21 = numA & numB; // 5 & 3 = 1; bitwise AND
+        System.out.println(result21);
+        int result22 = numA | numB; // 5 | 3 = 7; bitwise OR
+        System.out.println(result22);
+        int result23 = numA ^ numB; // 5 ^ 3 = 6; bitwise XOR
+        System.out.println(result23);
+        int result24 = ~numA; // ~5 = -6; bitwise NOT
+        System.out.println(result24);
+        int result25 = numA << 1; // 5 << 1 = 10; left shift
+        System.out.println(result25);
+        int result26 = numA >> 1; // 5 >> 1 = 2; right shift // before 0101 after 0010 and last bit is removed and 0 is added in the leftmost bit because numA is positive, if numA was negative then 1 would be added in the leftmost bit
+        System.out.println(result26);
+        int result27 = numA >>> 1; // 5 >>> 1 = 2; unsigned right shift
+        System.out.println(result27);
 
+        // Ternary Operator // ? :
+        // Check /java-notes/08_08-instanceof-operator-java.md
+        System.out.println("Ternary Operator:");
+        int ab = 10;
+        int ba = 20;
+        int max = (ab > ba) ? ab : ba;
+        System.out.println("Maximum of " + ab + " and " + ba + " is: " + max);
+
+        // instanceOf Operator // instanceof
+        System.out.println("instanceOf Operator:");
+        Object obj = new String("Hello");
+        if (obj instanceof String) {
+            System.out.println("obj is an instance of String");
+        } else {
+            System.out.println("obj is not an instance of String");
+        }
+
+        Object obj2 = null;
+        if (obj2 instanceof String) {
+            System.out.println("obj2 is an instance of String");
+        } else {
+            System.out.println("obj2 is not an instance of String");
+        }
+
+        String name = "Sandeep";
+        System.out.println(name instanceof String); // true because name is a String object, so it is an instance of the String class
+        String name2 = "Sandeep";
+        System.out.println(name2 instanceof Object); // true because String is a subclass of Object, so name2 is an instance of Object as well
+
+        Object obj3 = "Hello"; // obj3 is a reference of type Object, but it is actually referring to a String object, so it is an instance of String
+        //String str = (String) obj;
+        if(obj3 instanceof String) {
+            String str = (String) obj3;
+            System.out.println(str);
+        }
+        
+        if(obj3 instanceof Integer) {
+            Integer num5 = (Integer) obj3;
+            System.out.println(num5);
+        } else {
+            System.out.println("obj3 is not an instance of Integer");
+        }
     }
 }
+
+

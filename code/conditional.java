@@ -89,5 +89,11 @@ public class conditional {
             System.out.println("y is the greatest = " + y);
         else
           System.out.println("z is the greatest = " + z);  
+
+        // evenOddResult if even number than evenOddResult should be "Even" otherwise "Odd"
+        int num1 = 8;
+        String evenOddResult = null;
+        evenOddResult = num1 % 2 == 0 ? "Even" : "Odd";
+        System.out.println(evenOddResult);
     }
 }
