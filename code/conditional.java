@@ -95,5 +95,125 @@ public class conditional {
         String evenOddResult = null;
         evenOddResult = num1 % 2 == 0 ? "Even" : "Odd";
         System.out.println(evenOddResult);
+
+        //int weekday = 1;
+        int weekday = 3;
+        switch (weekday) {
+            case 1:
+                System.out.println("Monday");
+                break;
+            case 2:
+                System.out.println("Tuesday");
+                break;
+            case 3:
+                System.out.println("Wednesday"); 
+                break;
+            case 4:
+                System.out.println("Thursday");
+                break;
+            case 5:
+                System.out.println("Friday");
+                break;
+            case 6:
+                System.out.println("Saturday");
+                break;
+            case 7:
+                System.out.println("Sunday");
+                break;
+            default:
+                System.out.println("Invalid day");
+        }
+
+        String daywakeup = "Sunday";
+
+        switch (daywakeup) {
+            case "Sunday", "Saturday":
+                System.out.println("at 6:00 AM");
+                break;
+            case "Monday":
+                System.out.println("at 7:00 AM");
+                break;
+            default:
+                System.out.println("at 8:00 AM");
+        }
+
+
+        ///// modern switch statement ////
+        switch (daywakeup) {
+            case "Sunday", "Saturday" -> System.out.println("at 6:00 AM");
+            case "Monday" -> System.out.println("at 7:00 AM");
+            default -> System.out.println("at 8:00 AM");
+        }
+
+        int dayOfWeek = 5;
+
+        switch (dayOfWeek) {
+            case 1 -> 
+                System.out.println("at 6:00 AM");
+            case 2 -> 
+                System.out.println("at 7:00 AM");
+            case 3 -> 
+                System.out.println("at 8:00 AM");
+            default -> 
+                System.out.println("at 9:00 AM");
+        }
+
+        // Using switch expression (Java 14 and later) it means returning a value from the switch statement
+        String dayName = switch (dayOfWeek) {
+            case 1 -> "Monday";
+            case 2 -> "Tuesday";
+            case 3 -> "Wednesday";
+            case 4 -> "Thursday";
+            case 5 -> "Friday";
+            case 6 -> "Saturday";
+            case 7 -> "Sunday";
+            default -> "Invalid day";
+        };
+
+        System.out.println("The day is: " + dayName);
+
+        String wakeupTime = null;
+        // using switch expression to assign wakeup time based each case of daywakeup variable
+        switch (daywakeup) {
+            case "Sunday", "Saturday" -> wakeupTime = "at 6:00 AM";
+            case "Monday" -> wakeupTime = "at 7:00 AM";
+            default -> wakeupTime = "at 8:00 AM";
+        }
+        System.out.println("Wakeup time: " + wakeupTime);
+
+        // if dont want -> this that means you can use yield keyword to return value from switch expression
+        wakeupTime = switch (daywakeup) {
+            case "Sunday", "Saturday" -> {
+                System.out.println("Weekend");
+                yield "at 6:00 AM";
+            }
+            case "Monday" -> {
+                System.out.println("Weekday");
+                yield "at 7:00 AM";
+            }
+            default -> {
+                System.out.println("Other day");
+                yield "at 8:00 AM";
+            }
+        };
+        System.out.println("Wakeup time: " + wakeupTime);
+
+        // if you want to use this : in modern switch statement, you can use it like this
+        result = switch (daywakeup) {
+            case "Sunday", "Saturday" : yield "at 6:00 AM";
+            case "Monday" : yield "at 7:00 AM";
+            default : yield "at 8:00 AM";
+        }; 
+
+        // This is incorrect because System.out.println() returns void, and yield must return a value.
+        // Error - yield outside of switch expression
+        // You are using a switch statement, not a switch expression.
+        // Here, switch is not returning a value, so yield is not allowed.
+        /* switch (daywakeup) {
+            case "Sunday", "Saturday": yield System.out.println("at 6:00 AM");
+            case "Monday" : yield System.out.println("at 7:00 AM");
+            default : yield System.out.println("at 8:00 AM");
+        }*/
+       
     }
 }
