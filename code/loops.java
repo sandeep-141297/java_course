@@ -25,6 +25,7 @@ public class loops {
         }
 
         // 2 to 5 multiplication table
+        // nested while loop
         i = 2;
 
         while (i <= 5) {
@@ -34,6 +35,17 @@ public class loops {
                 j++;
             }
             System.out.println(); // blank line
+            i++;
+        }
+
+        i = 1;
+        while (i <= 5) {
+            System.out.println("Hi" + i);
+            j = 1;
+            while (j <= 3) {
+                System.out.println("Hello");
+                j++;
+            }
             i++;
         }
     }
