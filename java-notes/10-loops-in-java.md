@@ -589,3 +589,25 @@ For DSA and Java interviews, focus most on:
 5. Pattern printing using nested loops
 
 These are asked very frequently in Java and DSA interviews.
+
+---
+
+# some example explain
+
+```java
+int i3 = 1;
+int sub = 0;
+for (; i3 <= 5; i3++) {
+    sub -= i3; // sub = sub - i3
+    System.out.println("Sub = " + sub);
+}
+```
+
+| Iteration | i3 | Calculation | sub Value | Output      |
+| --------- | -- | ----------- | --------- | ----------- |
+| 1         | 1  | `0 - 1`     | -1        | `Sub = -1`  |
+| 2         | 2  | `-1 - 2`    | -3        | `Sub = -3`  |
+| 3         | 3  | `-3 - 3`    | -6        | `Sub = -6`  |
+| 4         | 4  | `-6 - 4`    | -10       | `Sub = -10` |
+| 5         | 5  | `-10 - 5`   | -15       | `Sub = -15` |
+
