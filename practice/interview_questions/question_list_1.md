@@ -1,7 +1,7 @@
 Day1 assignment
 Kindly solve these questions using Java8 Streams
 
-### Filter even numbers from a list. Convert a list of strings to uppercase. 
+** Filter even numbers from a list. Convert a list of strings to uppercase. **
 Find the first element that starts with a given letter. 
 Sort a list of integers. 
 Count strings with length greater than 5. 
