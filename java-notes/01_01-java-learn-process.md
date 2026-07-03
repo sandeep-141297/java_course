@@ -7,9 +7,10 @@ learning Java from the beginning, here's the best learning order.
 ✅ 3. Operators
 ✅ 4. If-Else & Switch
 ✅ 5. Loops
-✅ 6. Arrays
-✅ 7. Classes & Objects
-✅ 8. Methods 
+✅ 6. Classes & Objects
+✅ 7. Methods 
+✅ 8. Array, String 
+
 
 After methods, you should learn:
 
