@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Java Stack & Heap Memory - Simple Explanation</title>
+<style>
+  body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #222; }
+  h1 { border-bottom: 3px solid #333; padding-bottom: 8px; }
+  h2 { margin-top: 40px; color: #333; }
+  pre { background: #1e1e1e; color: #d4d4d4; padding: 16px; border-radius: 6px; overflow-x: auto; font-size: 14px; }
+  code { font-family: Consolas, monospace; }
+  .diagram { display: flex; gap: 50px; justify-content: center; align-items: center; margin: 30px 0; flex-wrap: wrap; }
+  .col { text-align: center; }
+  .col h3 { margin-bottom: 8px; }
+  .mem-table { border-collapse: collapse; font-family: Consolas, monospace; font-size: 14px; }
+  .mem-table td { border: 1px solid #333; padding: 8px 14px; }
+  .mem-table .label { background: #f0f0f0; font-weight: bold; text-align: left; }
+  .mem-table .val { text-align: left; }
+  .stack-title { color: #185fa5; }
+  .heap-title { color: #993c1d; }
+  .heap-block { margin-bottom: 24px; }
+  .addr-tag { display: inline-block; background: #993c1d; color: #fff; padding: 2px 10px; border-radius: 4px; font-size: 13px; margin-bottom: 4px; }
+  .arrow { font-size: 22px; color: #185fa5; }
+  table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+  th, td { border: 1px solid #ccc; padding: 8px 12px; text-align: left; }
+  th { background: #f0f0f0; }
+</style>
+</head>
+<body>
+
+<h1>Java Stack &amp; Heap Memory — Simple Explanation</h1>
+
+<p>Java memory ko do main parts me divide kiya jata hai: <b>Stack</b> aur <b>Heap</b>.</p>
+
+<ul>
+  <li><b>Stack</b> — method calls aur unke local variables/references yaha store hote hain. Method khatam hote hi ye clean ho jata hai.</li>
+  <li><b>Heap</b> — <code>new</code> keyword se banaye gaye actual objects yaha store hote hain. Ye tab tak rehta hai jab tak koi reference use point kar raha ho.</li>
+</ul>
+
+<h2>Example Code</h2>
+
+<pre><code>class Calculator {
+    int num;        // default 0
+    int num2 = 5;
+
+    public int add(int a, int b) {
+        return a + b;
+    }
+}
+
+public class Methods {
+    public static void main(String[] args) {
+
+        int data = 12;
+        Calculator calc = new Calculator();
+        Calculator calc2 = new Calculator();
+
+        int sum = calc.add(5, 10);
+        System.out.println("Sum: " + sum);
+
+        calc.num = 10;
+
+        System.out.println(calc.num);   // 10
+        System.out.println(calc2.num);  // 0
+    }
+}
+</code></pre>
+
+<h2>Diagram</h2>
+
+<svg width="100%" viewBox="0 0 700 460" xmlns="http://www.w3.org/2000/svg" style="max-width:700px; display:block; margin:0 auto;">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#2e7d32" stroke-width="1.5"/>
+    </marker>
+  </defs>
+
+  <!-- add(5,10) frame -->
+  <rect x="20" y="20" width="260" height="110" rx="12" fill="#e6f1fb" stroke="#185fa5" stroke-width="1.5"/>
+  <text x="40" y="45" font-family="Consolas,monospace" font-size="14" font-weight="bold" fill="#185fa5">add(5, 10) frame</text>
+  <rect x="40" y="58" width="90" height="30" fill="#fff" stroke="#333"/>
+  <rect x="130" y="58" width="90" height="30" fill="#fff" stroke="#333"/>
+  <text x="60" y="78" font-family="Consolas,monospace" font-size="13">a</text>
+  <text x="150" y="78" font-family="Consolas,monospace" font-size="13">5</text>
+  <rect x="40" y="88" width="90" height="30" fill="#fff" stroke="#333"/>
+  <rect x="130" y="88" width="90" height="30" fill="#fff" stroke="#333"/>
+  <text x="60" y="108" font-family="Consolas,monospace" font-size="13">b</text>
+  <text x="150" y="108" font-family="Consolas,monospace" font-size="13">10</text>
+
+  <!-- main() frame -->
+  <rect x="20" y="170" width="260" height="260" rx="12" fill="#e6f1fb" stroke="#185fa5" stroke-width="1.5"/>
+  <text x="40" y="195" font-family="Consolas,monospace" font-size="14" font-weight="bold" fill="#185fa5">main() frame</text>
+
+  <rect x="40" y="208" width="90" height="34" fill="#fff" stroke="#333"/>
+  <rect x="130" y="208" width="90" height="34" fill="#fff" stroke="#333"/>
+  <text x="60" y="230" font-family="Consolas,monospace" font-size="13">data</text>
+  <text x="150" y="230" font-family="Consolas,monospace" font-size="13">12</text>
+
+  <rect x="40" y="242" width="90" height="34" fill="#fff" stroke="#333"/>
+  <rect x="130" y="242" width="90" height="34" fill="#fff" stroke="#333"/>
+  <text x="60" y="264" font-family="Consolas,monospace" font-size="13">calc</text>
+  <text x="150" y="264" font-family="Consolas,monospace" font-size="13">101</text>
+
+  <rect x="40" y="276" width="90" height="34" fill="#fff" stroke="#333"/>
+  <rect x="130" y="276" width="90" height="34" fill="#fff" stroke="#333"/>
+  <text x="60" y="298" font-family="Consolas,monospace" font-size="13">calc2</text>
+  <text x="150" y="298" font-family="Consolas,monospace" font-size="13">105</text>
+
+  <rect x="40" y="310" width="90" height="34" fill="#fff" stroke="#333"/>
+  <rect x="130" y="310" width="90" height="34" fill="#fff" stroke="#333"/>
+  <text x="60" y="332" font-family="Consolas,monospace" font-size="13">sum</text>
+  <text x="150" y="332" font-family="Consolas,monospace" font-size="13">15</text>
+
+  <!-- Heap -->
+  <rect x="420" y="60" width="240" height="340" rx="16" fill="#faece7" stroke="#993c1d" stroke-width="1.5"/>
+  <text x="440" y="85" font-family="Consolas,monospace" font-size="14" font-weight="bold" fill="#993c1d">Heap</text>
+
+  <rect x="440" y="110" width="200" height="90" rx="6" fill="#fff" stroke="#993c1d"/>
+  <text x="450" y="130" font-family="Consolas,monospace" font-size="12" fill="#993c1d" font-weight="bold">Address: 101</text>
+  <text x="450" y="152" font-family="Consolas,monospace" font-size="13">num = 10</text>
+  <text x="450" y="174" font-family="Consolas,monospace" font-size="13">num2 = 5</text>
+
+  <rect x="440" y="230" width="200" height="90" rx="6" fill="#fff" stroke="#993c1d"/>
+  <text x="450" y="250" font-family="Consolas,monospace" font-size="12" fill="#993c1d" font-weight="bold">Address: 105</text>
+  <text x="450" y="272" font-family="Consolas,monospace" font-size="13">num = 0</text>
+  <text x="450" y="294" font-family="Consolas,monospace" font-size="13">num2 = 5</text>
+
+  <!-- Arrows: calc (101) -> block 101, calc2 (105) -> block 105 -->
+  <path d="M220,259 C320,259 360,155 440,155" fill="none" stroke="#2e7d32" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M220,293 C320,293 360,275 440,275" fill="none" stroke="#2e7d32" stroke-width="2" marker-end="url(#arrow)"/>
+</svg>
+
+<p style="text-align:center; font-size:13px; color:#555;">
+  <code>calc</code> (value 101) &rarr; connects to the object at <b>Address 101</b>.
+  <code>calc2</code> (value 105) &rarr; connects to the object at <b>Address 105</b>.
+  Each reference points to its own exact object &mdash; not the other one.
+</p>
+
+<p style="text-align:center; font-size:13px; color:#888; font-style:italic;">
+  Note: 101, 105 jaise addresses sirf samajhne ke liye (for understanding only) diye gaye hain.
+  Real JVM me actual memory address kabhi print/access nahi hota &mdash; ye ek simplified representation hai.
+</p>
+
+<p><b>Is line ke liye:</b></p>
+<pre><code>int sum = calc.add(5, 10);
+System.out.println("Sum: " + sum);</code></pre>
+<p>1) <code>calc</code> (stack me 101 address) heap ke <code>0x101</code> object ko point karta hai, isliye <code>calc.add(...)</code> wahi object ka method call karta hai.<br>
+2) Call hote hi ek naya <b>add() stack frame</b> banta hai (upar table me) &mdash; usme sirf <code>a = 5</code>, <code>b = 10</code> store hote hain, kyunki ye method ke local parameters hain.<br>
+3) <code>return a + b</code> chalte hi result <b>15</b> caller ko milta hai, add() frame turant stack se hat jata hai (pop), aur wo value <code>main()</code> frame ke <code>sum</code> variable me store ho jati hai (jaisa upar table me dikh raha hai).<br>
+4) Fir <code>System.out.println</code> stack ke <code>sum</code> ki value read karke print karta hai.</p>
+
+<h2>How It Works</h2>
+
+<table>
+  <tr><th>Step</th><th>What happens</th></tr>
+  <tr><td>1</td><td><code>new Calculator()</code> runs twice &rarr; two separate objects created on Heap</td></tr>
+  <tr><td>2</td><td><code>calc</code> and <code>calc2</code> (on Stack) store only the address of their own object</td></tr>
+  <tr><td>3</td><td><code>calc.num = 10</code> changes only the object at <code>0x101</code></td></tr>
+  <tr><td>4</td><td><code>calc2</code>'s object at <code>0x105</code> stays untouched &rarr; its <code>num</code> is still 0</td></tr>
+</table>
+
+<p><b>Key point:</b> Each object gets its own copy of instance variables (<code>num</code>, <code>num2</code>) on the heap. The stack only holds references (addresses) pointing to them.</p>
+
+</body>
+</html>

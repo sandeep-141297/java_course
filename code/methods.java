@@ -40,11 +40,17 @@ class shopkeeper {
 }
 
 class calculator {
+
+    int num; // default value of int is 0, so num will be initialized to 0. Check this file 14_01-variable-default-value-java.md
+    int num2 = 5;
+
     public int add(int a, int b, int c) {
+        System.out.println(num);
         return a + b + c;
     }
 
     public int add(int a, int b) {
+        System.out.println(num);
         return a + b;
     }
 
@@ -69,8 +75,20 @@ public class methods {
         
 
         calculator calc = new calculator();
+        calculator calc2 = new calculator();
+
         int sum = calc.add(5, 10);  
         System.out.println("Sum: " + sum);
+
+        calc.num = 10;
+
+        System.out.println("Num in calc: " + calc.num); // 0
+        System.out.println("Num in calc2: " + calc2.num); // 0
+        System.out.println("Num2 in calc: " + calc.num2); // 5
+        System.out.println("Num2 in calc2: " + calc2.num2); // 5
+
+        int sum1 = calc.add(5, 10);  
+        System.out.println("Sum1: " + sum1);
 
         System.out.println("Hello, World!");
         shopkeeper shop = new shopkeeper();
