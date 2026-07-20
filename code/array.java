@@ -32,14 +32,6 @@ public class array {
         }
 
 
-
-
-
-
-
-
-
-
         int[] arr = new int[10]; // Declare an array of size 10
         arr[0] = 10; // Assign values to the array
         arr[1] = 20;
@@ -65,5 +57,156 @@ public class array {
         for (int value : arr) {
             System.out.println("Value: " + value);
         }
+
+
+
+
+        System.out.println("Multi-dimensional array example:");
+        // multi-dimensional array
+        int[][] multiArr = new int[4][5]; // Declare a 2D array/Multi-dimensional with 4 rows and 5 columns
+
+        /*int multiArr[][] = {
+            {10,20,30},
+            {40,50,60},
+            {70,80,90},
+            {20,10,40},
+            {40,50,60}
+        };*/
+        
+        System.out.println(multiArr.length); // prints 4, number of rows
+
+        for (int i = 0; i < multiArr.length; i++) {
+            for (int j = 0; j < multiArr[i].length; j++) {
+                //multiArr[i][j] = (i + 1) * (j + 1); // Assign values to the 2D array
+                // Math.random() generates a random double value between 0.0 (inclusive) and 1.0 (exclusive). By multiplying it by 100, we get a random double value between 0.0 and 100.0. Casting it to int truncates the decimal part, resulting in an integer value between 0 and 99.
+                //multiArr[i][j] = (int)(Math.random() * 100); // Assign random values to the 2D array
+                multiArr[i][j] = (int)(Math.random() * 10); // Assign random single-digit values to the 2D array
+            }
+        }
+
+        for (int i = 0; i < multiArr.length; i++) {
+            //System.out.println("Row " + i + ":");
+            // System.out.println(multiArr[i].length); // prints 5, number of columns in each row
+            for (int j = 0; j < multiArr[i].length; j++) {
+                // System.out.println("Element at [" + i + "][" + j + "]: " + multiArr[i][j]);
+                // System.out.println("Address of element at [" + i + "][" + j + "]: " + System.identityHashCode(multiArr[i][j]));
+                System.out.print(multiArr[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        // enhanced for loop to iterate through the multi-dimensional array
+        System.out.println("Using enhanced for loop to iterate through the multi-dimensional array:");
+        for (int row[] : multiArr) {
+            for (int value : row) {
+                System.out.print(value + " ");
+            }
+            System.out.println();
+        }
+
+        // Find 5 greatest numbers in the multi-dimensional array using a simple approach from the multiArr array
+        // work process check this D:\java_course\java-notes\15_03-01-multi-dimensonal-array-doubt.md
+        for (int count = 1; count <= 5; count++) {
+
+            int max = multiArr[0][0];
+            int row = 0;
+            int col = 0;
+
+            for (int i = 0; i < multiArr.length; i++) {
+
+                for (int j = 0; j < multiArr[i].length; j++) {
+
+                    if (multiArr[i][j] > max) {
+                        max = multiArr[i][j];
+                        row = i;
+                        col = j;
+                    }
+
+                }
+
+            }
+
+            System.out.println(max);
+
+            multiArr[row][col] = -1;
+        }
+
+
+
+
+        // jagged array
+        System.out.println("Jagged array example:");
+        int jaggedArr[][] = new int[3][]; // Declare a jagged array with 3 rows, but the number of columns in each row is not specified
+        jaggedArr[0] = new int[5]; // First row has 5 columns
+        jaggedArr[1] = new int[3]; // Second row has 3 columns
+        jaggedArr[2] = new int[4]; // Third row has 4 columns
+
+
+        for (int i = 0; i < jaggedArr.length; i++) {
+            for (int j = 0; j < jaggedArr[i].length; j++) {
+                jaggedArr[i][j] = (int)(Math.random() * 10); // Assign random single-digit values to the jagged array
+            }
+        }
+
+        for (int i = 0; i < jaggedArr.length; i++) {
+            for (int j = 0; j < jaggedArr[i].length; j++) {
+                System.out.print(jaggedArr[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+
+
+
+        // 3D array
+        System.out.println("3D array example:");
+        int[][][] threeDArr = new int[2][3][4]; // Declare a 3D array with 2 layers, 3 rows, and 4 columns
+
+        for (int i = 0; i < threeDArr.length; i++) {
+            for (int j = 0; j < threeDArr[i].length; j++) {
+                for (int k = 0; k < threeDArr[i][j].length; k++) {
+                    threeDArr[i][j][k] = (int)(Math.random() * 10); // Assign random single-digit values to the 3D array
+                }
+            }
+        }
+
+        System.out.println(threeDArr[0][1][2]); // Accessing an element in the 3D array
+
+        for (int i = 0; i < threeDArr.length; i++) {
+            System.out.println("Layer " + i);
+
+            for (int j = 0; j < threeDArr[i].length; j++) {
+                for (int k = 0; k < threeDArr[i][j].length; k++) {
+                    System.out.print(threeDArr[i][j][k] + " ");
+                }
+                System.out.println();
+            }
+
+            System.out.println();
+        }
+
+        for (int i = 0; i < threeDArr.length; i++) {
+            for (int j = 0; j < threeDArr[i].length; j++) {
+                System.out.print("{");
+                for (int k = 0; k < threeDArr[i][j].length; k++) {
+                    System.out.print(" " + threeDArr[i][j][k] + " ");
+                }
+                System.out.print("}");
+            }
+            System.out.println();
+        }
+
+        System.out.println("Using enhanced for loop to iterate through the 3D array:");
+        for (int[][] layer : threeDArr) {
+            for (int[] row : layer) {
+                for (int value : row) {
+                    System.out.print(value + " ");
+                }
+                System.out.println();
+            }
+            System.out.println();
+        }
+        
+    
     }
 }
