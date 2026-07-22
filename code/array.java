@@ -66,11 +66,10 @@ public class array {
         int[][] multiArr = new int[4][5]; // Declare a 2D array/Multi-dimensional with 4 rows and 5 columns
 
         /*int multiArr[][] = {
-            {10,20,30},
-            {40,50,60},
-            {70,80,90},
-            {20,10,40},
-            {40,50,60}
+            {10,20,30,40,50},
+            {40,50,60,70,80},
+            {70,80,90,80,70},
+            {20,10,40,30,20}
         };*/
         
         System.out.println(multiArr.length); // prints 4, number of rows
@@ -106,6 +105,7 @@ public class array {
 
         // Find 5 greatest numbers in the multi-dimensional array using a simple approach from the multiArr array
         // work process check this D:\java_course\java-notes\15_03-01-multi-dimensonal-array-doubt.md
+        System.out.println("5 greatest numbers in the multi-dimensional array:");
         for (int count = 1; count <= 5; count++) {
 
             int max = multiArr[0][0];
