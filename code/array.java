@@ -207,6 +207,106 @@ public class array {
             System.out.println();
         }
         
-    
+
+        // Drawback of using arrays in Java
+        // Check Process Flow - 15_04-02-Drawback-Array-Insert-Shift.md
+            // 1. Fixed size - cannot be resized after creation.
+            // 2. Can store only one data type (homogeneous).
+            // 3. Insertion in the middle is slow because elements need to be shifted.
+            // 4. Deletion is slow because remaining elements need to be shifted.
+            // 5. Memory may be wasted if the allocated array size is much larger than the number of elements used.
+        int fixedSizeArr[] = new int[5]; // Declare an array of size 5
+        fixedSizeArr[0] = 10;
+        fixedSizeArr[1] = 20;
+        fixedSizeArr[2] = 30;
+        fixedSizeArr[3] = 40;
+        fixedSizeArr[4] = 50;
+
+        // insertion in the middle of the array
+        int indexToInsert = 2; // Index where we want to insert the new element
+        int newElement = 25; // The new element to be inserted
+
+        // Shift elements to the right
+        for (int i = fixedSizeArr.length - 1; i > indexToInsert; i--) {
+            System.out.println("Shifting element at index " + (i - 1) + " to index " + i);
+            System.out.println(fixedSizeArr[i]);
+            fixedSizeArr[i] = fixedSizeArr[i - 1];
+            System.out.println(fixedSizeArr[i]);
+        }
+
+        //System.out.println(fixedSizeArr[2]);
+
+        // Insert the new element
+        fixedSizeArr[indexToInsert] = newElement;
+        System.out.println("Fixed size array after insertion: " + fixedSizeArr[2]);
+
+        for (int i = 0; i < fixedSizeArr.length; i++) {
+            System.out.println("Element at index " + i + ": " + fixedSizeArr[i]);
+        }
+
+
+        // deletion in the middle of the array - Check Process Flow - 15_04-03-Drawback-Array-delete-Shift.md
+        int indexToDelete = 3; // Index of the element to be deleted
+
+        // Shift elements to the left
+        for (int i = indexToDelete; i < fixedSizeArr.length - 1; i++) {
+            System.out.println("Shifting element at index " + (i + 1) + " to index " + i);
+            System.out.println(fixedSizeArr[i]);
+            fixedSizeArr[i] = fixedSizeArr[i + 1];
+            System.out.println(fixedSizeArr[i]);
+        }
+        System.out.println("Fixed size array after deletion: " + fixedSizeArr[3]);
+
+        fixedSizeArr[fixedSizeArr.length - 1] = 0;
+
+        for (int i = 0; i < fixedSizeArr.length; i++) {
+            System.out.println("Element at index " + i + ": " + fixedSizeArr[i]);
+        }
+
+        
+        
+        int[] arr2 = {10, 20, 30, 40, 50};
+
+        for (int i = 0; i < arr2.length; i++) {
+            System.out.println("Element at index " + i + ": " + arr2[i]);
+        }
+
+        // Physical Delete (Create New Array)
+        System.out.println("Physical delete example:");
+        //int[] arr3 = {10, 20, 40, 50};
+        int[] arr3 = new int[arr2.length - 1];
+        int indexToDeleteVal = 2;
+        int j = 0;
+
+        for (int i = 0; i < arr2.length; i++) {
+            if (i != indexToDeleteVal) {
+                arr3[j] = arr2[i];
+                j++;
+            }
+        }
+        for (int i = 0; i < arr3.length; i++) {
+            System.out.println("Element at index " + i + ": " + arr3[i]);
+        }
+
+        System.out.println("Logical delete example:");
+        // Logical Delete
+        int indexToDeleteVal2 = 2;
+
+        for (int i = indexToDeleteVal2; i < arr2.length - 1; i++) {
+            arr2[i] = arr2[i + 1];
+            System.out.println(arr2[i]);
+        }
+
+        // Set the last element to a default value (e.g., 0) to indicate that it is logically deleted
+        arr2[arr2.length - 1] = 0;
+        for (int i = 0; i < arr2.length; i++) {
+            System.out.println("Element at index " + i + ": " + arr2[i]);
+        }
+
+        
+
+
+
+
     }
 }
